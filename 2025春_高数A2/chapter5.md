@@ -17,7 +17,7 @@ vlook-query: ws=off
 # 无穷级数
 > [!tip]
 > 
-> 本章的内容主要包括**常数项级数的收敛性**和**函数的级数展开**. 对**常数项级数**可以说是古人的某种智力挑战题. 而**函数项级数**则传递了更深层次的数学思想, 既用简单的无穷多项的和来表示一个复杂的对象.
+> 本章的内容主要包括**常数项级数的收敛性**和**函数的级数展开**. 对**常数项级数**的研究可以追溯到古人对极限过程的早期理解. 而**函数项级数**则是分析学中一项极其重要的工具, 函数项级数蕴含了深层次的数学思想, 即用简单的无穷多项的和来表示一个复杂的对象.
 
 ## 常数项级数的概念和性质
 
@@ -43,20 +43,20 @@ vlook-query: ws=off
 
 
 > [!important]
-> **定义**: $ \displaystyle a_n=\frac{1}{2^n}, ~ S_n=\sum_{i}^{\ n} a_n \quad n \rightarrow \infty$ ，称为$a_n$的无穷级数，简称级数。
+> 
+> ==级数的定义==
 >
->如果 $\left\{S_n\right\}$ 有极限， $\lim _{n \rightarrow \infty} S_n=S$ ，称级数收敛。
+> 无穷多个数的和称为**无穷级数**, 简称**级数**.
+> 
+> 给定数列 $a_n, n = 1, 2, \cdots, \infty$, $S_n= \displaystyle \sum_{i}^{\ n} a_n$ 称为数列 $a_n$ 的**部分和**, 如果 $\displaystyle \lim _{n \rightarrow \infty} S_n=S$ 有极限，称级数**收敛**, 否则称级数**发散**.
 
 >[!tip]
 >
->解：需要补充过程。
->
->P253 例1. 计算等比数列
+>P253 例1. 等比数列
 >$$
->S_n=\sum_{i=2}^{\ n} a q^i, a \neq 0
+>S_n=\sum_{i=1}^{\ n} a q^{i-1}, a \neq 0
 >$$
 >
-
 >$q \neq 1 \quad S_n=\frac{a}{1-q}-\frac{a q^n}{1-q}$
 >
 >$|q|<1$ ,收敛.
@@ -77,14 +77,8 @@ $q=-1 $ 发散.
 \end{aligned}
 >$$
 
->[!tip]
->通过计算题判断级数收敛——有时可行，有时不可行
->
->用别的办法（不计算）来判断收敛
-
 > [!important] 
 > 
-> (没有性质4？)
 >
 >**性质1**：$\quad \sum u_n=s . \quad \sum k u_n=k s.$
 >
@@ -111,33 +105,45 @@ $
 >例\ \ 1+\frac{1}{2}+\frac{1}{3}+\cdots+\frac{1}{n}
 >$$
 
-## §12.2 常数项级数的审敛法
-### 1.正项级数
-
->**定理1**：
->正项级数 $\displaystyle \sum_{n=1}^{\infty} u_n$ 收敛的充要条件是 $S_n$ 有界。
->
->单调有界有极限。
-
->**定理2**：$\sum u_n$ 和 $\sum v_n$ 都是正项级数，$u_n \leqslant v_n$
-则 
->
->$$\sum  V_n收敛 \Rightarrow \sum  U_n收敛$$
->$$\sum u_n \text { 发散 } \Rightarrow \sum v_n \text { 发散. }$$
-
-
-注:与前 $N$ 项无关
-
->$P 260$
->例2：$\sum \frac{1}{\sqrt{n(n+1)}}$
-
-$\frac{1}{n+1}<\frac{1}{\sqrt{n(n+1)}}<\frac{1}{\sqrt{n n}}$
-
-> [!important]
->**定理3**： $\lim _{n \rightarrow \infty} \frac{u_n}{v_n}=l$ ，$l>0$ ，则 $u_n \sim v_n$，即二者同收敛.
+## 常数项级数的审敛法
 
 >[!tip]
 >
+> 直接计算部分和很多时候并不可行, 如果我们只关心级数收敛与否, 可以使用一些判别法来判断级数的收敛性, 这些判别法也称为**审敛法**.
+
+### 正项级数
+
+> [!important]
+> 
+> ==定理1==
+> 
+> 正项级数 $\displaystyle \sum_{n=1}^{\infty} u_n$ 收敛的充要条件是 $S_n$ 有界。
+>
+> 注: 本质上这个定理就是我们上册学过的**单调有界有极限**.
+
+> [!important]
+> 
+> ==定理2==
+> 
+> $\sum u_n$ 和 $\sum v_n$ 都是正项级数，$u_n \leqslant v_n$, 则 
+>
+>$$\sum  v_n收敛 \Rightarrow \sum  u_n收敛$$
+>$$\sum u_n \text { 发散 } \Rightarrow \sum v_n \text { 发散. }$$
+>
+> 注: 上述结论与数列的前 $N$ 项无关.
+
+> [!note]
+> 
+> $P 260$ 例2：$\sum \frac{1}{\sqrt{n(n+1)}}$
+> $\frac{1}{n+1}<\frac{1}{\sqrt{n(n+1)}}<\frac{1}{\sqrt{n n}}$
+
+> [!important]
+> 
+> ==定理3== $
+> \lim _{n \rightarrow \infty} \frac{u_n}{v_n}=l$ ，$l>0$ ，则二者同收敛.
+>
+
+> [!note]
 >P261例3．$\sum_{n=1}^{\infty} \sin \frac{1}{n}$
 >
 >解：
@@ -147,7 +153,8 @@ $\frac{1}{n+1}<\frac{1}{\sqrt{n(n+1)}}<\frac{1}{\sqrt{n n}}$
 
 >[!important]
 >
->**定理4**：已知$\quad \lim _{n \rightarrow 0} \frac{u_{n+1}}{u_n}=ρ$
+> ==定理4 (非常重要)==
+> 已知$\quad \lim _{n \rightarrow 0} \frac{u_{n+1}}{u_n}=ρ$
 >$$
 >\begin{array}
 >ρ<1 . & \text { 收敛. } \\
@@ -168,13 +175,20 @@ $\frac{1}{n+1}<\frac{1}{\sqrt{n(n+1)}}<\frac{1}{\sqrt{n n}}$
 >$$
 
 
-### 2．交错级数
+### 交错级数
+
+>[!important]
+> 
+> ==交错级数的定义==
+> [补充]
+
 >[!important]
 >
->**定理7**（莱布尼茨定理）：对$\sum_{n=1}^{\infty}(-1)^{n-1} u_n$,
+> ==定理7（莱布尼茨定理）==
+>对$\sum_{n=1}^{\infty}(-1)^{n-1} u_n$,
 >若 $ u_n \geqslant u_{n+1} . \quad \lim _{n \rightarrow \infty} u_n=0$,则级数收敛.
 
->例:
+> [!note]
 >$$
 \begin{aligned}
 & 1-\frac{1}{2}+\frac{1}{3}-\frac{1}{4}+\cdots+(-1)^{n-1} \frac{1}{n}+\cdots \\
@@ -183,40 +197,34 @@ $\frac{1}{n+1}<\frac{1}{\sqrt{n(n+1)}}<\frac{1}{\sqrt{n n}}$
 >$$
 
 
-### 3. 绝收数与条件收敛
->绝对收敛： $\displaystyle \sum_{n=1}^{\infty}\left|u_n\right|$ 收敛
+### 绝收数与条件收敛
+
+> [!important]
+> ==绝对收敛== 
+> 
+> $\displaystyle \sum_{n=1}^{\infty}\left|u_n\right|$ 收敛
 >
->条件收敛：  $\displaystyle \sum_{n=1}^{\infty} u_n$ 收敛
+> ==条件收敛==
+> 
+> $\displaystyle \sum_{n=1}^{\infty}\left|u_n\right|$ 发散但 $\displaystyle \sum_{n=1}^{\infty} u_n$ 收敛
+>
+> 注: 绝对收敛 $\Rightarrow$ 条件收敛.
 
->$$
-\text { 绝对收敛 } \Rightarrow \text { 条件收敛 }
->$$
-
->[!tip]
+>[!note]
 >
 >p268．例9.$\quad \sum \frac{\sin n \alpha}{n^2}$
 >解：
 >$$
-因\sum\left|\frac{\sin \alpha}{n^2}\right| \leqslant \sum \frac{1}{n^2}, 故收敛
+> 因\sum\left|\frac{\sin \alpha}{n^2}\right| \leqslant \sum \frac{1}{n^2}, 故收敛
 >$$
 
 
-## §12.3 幂级数
+## 幂级数
 
->### 一、函数项级数
->
-> * $u_n \rightarrow u_n(x)$
->
-> * $S \rightarrow S(x)$ ← 和函数
->
-> * $x \rightarrow x_0$
->
->  收敛点 / 发散点
->  
-> 收敛域 / 发散域
+> [!tip]
+> 由常数数列构成的级数称为**常数项级数**, 由无穷多个函数的和构成的无穷级数称为**函数项级数**. **幂级数**是函数项级数中最简单也最直观的例子.
 
-
->### 二、幂级数
+>### 幂级数
 >
 >$$
 >\displaystyle \sum_{n=1}^{\infty} a_n x^n = a_0 + a_1x + a_2x^2 + \cdots + a_nx^n + \cdots
@@ -338,7 +346,7 @@ x - \frac{x^2}{2} + \frac{x^3}{3} - \cdots + (-1)^n \frac{x^n}{n} + \cdots
 >因此原级数的收敛域是$[-1, 3)$
 
 
-## §12.4 幂级数展开
+## 幂级数展开
 >常用展开式：
 >1. 指数函数：
    >$$ e^x = 1 + x + \frac{x^2}{2!} + \cdots+\frac{x^n}{n!}+\cdots \quad (-\infty < x < \infty) $$
@@ -379,8 +387,6 @@ f(x) &= (1-x) \sum_{n=1}^\infty \frac{(-1)^{n-1}}{n} x^n \\
 = \sin\frac{\pi}{4} \cos\left(x - \frac{\pi}{4}\right) + \cos\frac{\pi}{4} \sin\left(x - \frac{\pi}{4}\right)
 >$$
 
----
-
 >**例5**
 >将函数 $f(x) = \frac{1}{x^2 + 4x + 3}$ 展开成 $(x-1)$ 的幂级数。
 >
@@ -407,227 +413,8 @@ f(x) = \frac{1}{(x+1)(x+3)} = \frac{1}{2(1+x)} - \frac{1}{2(3+x)}
 f(x) = \sum_{n=0}^\infty (-1)^n \left( \frac{1}{2^{n+2}} - \frac{1}{2^{2n+3}} \right) (x-1)^n \quad (-1 < x < 3)
 >$$
 
-## §12.5 应用（后面讲）
->一、近似计算
+## 傅里叶级数（Fourier Series）
 
-
->二、微分方程
-
-
->三、欧拉公式
-   >$$ e^z = 1 + z + \frac{z^2}{2!} + \cdots + \frac{z^n}{n!}+ \cdots\quad (|z|<\infty ) $$
->$z= x + iy$
->
-   >$ e^{iy} = 1 + iy - \frac{y^2}{2!} + \cdots+ \frac{y^n}{n!} +\cdots $
-   >
-   >$$\quad = (1-\frac{y^2}{2!}+\frac{y^4}{4!}- \cdots)+(i\frac{y^3}{3!}-i\frac{y^5}{5!}+\cdots)$$
-   >$ \quad= \cos y + i \sin y $
->
-   >$$ e^{xi} = \cos x + i \sin x $$
-> 
->特例. $ e^{i}  = -1+ 0 $
->   $$ e^{i\pi} + 1 = 0 \quad \text{（最美公式）} $$
-
-## §12.7 傅里叶级数（Fourier Series）
-
-
->多项式展开：
->$$ f(x) = a_0 + a_1x + a_2x^2 + \cdots + a_nx^n + \cdots$$
->
->离散点近似：
->$$ f(x) \sim \begin{bmatrix} 
-f(0) \\ 
-f(0.25) \\ 
-f(0.5) \\ 
-f(0.75) \\ 
-f(1) 
-\end{bmatrix}  $$
-
-
->矩阵形式展开
->
->将函数表示为系数方程组：
->$$
-\begin{cases}
-f(0)   = a_0 + a_1 \cdot 0 + a_2 \cdot 0^2 + a_3 \cdot 0^3 + a_4 \cdot 0^4 \\
-f(0.25)= a_0 + a_1 \cdot \frac{1}{4} + a_2 \cdot \left(\frac{1}{4}\right)^2 + a_3 \cdot \left(\frac{1}{4}\right)^3 + a_4 \cdot \left(\frac{1}{4}\right)^4 \\
-f(0.5) = a_0 + a_1 \cdot \frac{1}{2} + a_2 \cdot \left(\frac{1}{2}\right)^2 + a_3 \cdot \left(\frac{1}{2}\right)^3 + a_4 \cdot \left(\frac{1}{2}\right)^4 \\
-f(0.75)= a_0 + a_1 \cdot \frac{3}{4} + a_2 \cdot \left(\frac{3}{4}\right)^2 + a_3 \cdot \left(\frac{3}{4}\right)^3 + a_4 \cdot \left(\frac{3}{4}\right)^4 \\
-f(1)   = a_0 + a_1 \cdot 1 + a_2 \cdot 1^2 + a_3 \cdot 1^3 + a_4 \cdot 1^4
-\end{cases}
->$$
->
->简写为矩阵形式：
->$$
->\begin{bmatrix} 
-f(0) \\ 
-f(0.25) \\ 
-f(0.5) \\ 
-f(0.75) \\ 
-f(1) 
-\end{bmatrix}=a_0
-\begin{bmatrix} 
-1 \\ 
-1 \\ 
-1 \\ 
-1 \\
-1 
-\end{bmatrix}    
-+a_1\begin{bmatrix} 
-0 \\ 
-\frac{1}{4} \\ 
-\frac{1}{2} \\ 
-\frac{3}{4} \\
-1 
-\end{bmatrix} 
-+a_2\begin{bmatrix} 
-0 \\ 
-\frac{1}{16} \\ 
-\frac{1}{4} \\ 
-\frac{9}{16} \\
-1 
-\end{bmatrix} 
-+a_3\begin{bmatrix} 
-0 \\ 
-\frac{1}{64} \\ 
-\frac{1}{8} \\ 
-\frac{27}{64} \\
-1 
-\end{bmatrix} 
-+a_4\begin{bmatrix} 
-0 \\ 
-\left(\frac{1}{4}\right)^4 \\ 
-\left(\frac{1}{2}\right)^4 \\ 
-\left(\frac{3}{4}\right)^4 \\
-1 
-\end{bmatrix}
->$$
->
->$$
-=\begin{bmatrix}
-1 & 0 & 0 & 0 & 0 \\
-1 & \frac{1}{4} & \frac{1}{16} & \frac{1}{64} & \frac{1}{256} \\
-1 & \frac{1}{2} & \frac{1}{4} & \frac{1}{8} & \frac{1}{16} \\
-1 & \frac{3}{4} & \frac{9}{16} & \frac{27}{64} & \frac{81}{256} \\
-1 & 1 & 1 & 1 & 1
-\end{bmatrix}
-\begin{bmatrix}
-a_0 \\
-a_1 \\
-a_2 \\
-a_3 \\
-a_4
-\end{bmatrix}
->$$
-
->[!tip]
->
-> 1. $a_0,a_1,...,a_4$ 不好算
-> 2. 性质也不好.
-
->$$
->\begin{bmatrix}
-1 \\
-0 \\
-0 \\
-0 \\
-0
-\end{bmatrix}
-\begin{bmatrix}
-0 \\
-1 \\
-0 \\
-0 \\
-0
-\end{bmatrix}
-\begin{bmatrix}
-0 \\
-0 \\
-1 \\
-0 \\
-0
-\end{bmatrix}
-\begin{bmatrix}
-0 \\
-0 \\
-0 \\
-1 \\
-0
-\end{bmatrix}
-\begin{bmatrix}
-0 \\
-0 \\
-0 \\
-0 \\
-1
-\end{bmatrix}
-$$
-
-> [!tip]
-> 1. ${a}$好算.
-> 2. 不连续.
-
-> 傅里叶级数 
->**积分公式**： 
->$$
-\int_0^1 \sin(2\pi x) \, dx = 0= \int_0^1 \cos(2\pi x) \, dx 
->$$
->$$
-\int_0^1 \sin(2\pi n x) \sin(2\pi m x) \, dx = 0 \quad (n \neq m)
->$$
->$$
-\int_0^1 \cos(2\pi n x) \cos(2\pi m x) \, dx = \frac{1}{2} \int_0^1 \left[\cos(2\pi (n+m)x) + \cos(2\pi (n-m)x)\right] \, dx = 0
->$$
->$$
-\int_0^1 dx = 1, \quad \int_0^1 \sin^2(2\pi n x) \, dx =  \int_0^1 \frac{1- \cos((2\pi)2 n x) }{2}dx =\frac{1}{2}
->$$
-
->**傅里叶级数展开式**： 
->$$
-f(x) = \frac{a_0 }{2}+ \sum_{k=1}^{\infty} \left[ a_k \cos(\frac{2\pi k x}{T}) + b_n \sin(\frac{2\pi k x}{T}) \right]
->$$
-这块笔记有问题！！！
->$$
-a_k = \frac{2}{T}\int_0^T f(x) \cos(\frac{2\pi k x}{T}) \, dx, \quad b_k =  \frac{2}{T}\int_0^T f(x) \sin(\frac{2\pi k x}{T}) \, dx
->$$
->适用于周期函数（周期为 T）。
-
----
-
-### 复数形式
->
->**欧拉公式**： 
->$$
-e^{ix} = \cos x + i \sin x, \quad e^{-ix} = \cos x - i \sin x
->$$
->  
->$$
-\cos x = \frac{1}{2} (e^{ix} + e^{-ix}), \quad \sin x = \frac{1}{2i} (e^{ix} - e^{-ix})
->$$
-
-
-
->周期为 $ 2l $。 
->
->函数 $ f(x) $ 的展开式： 
->
->$$
->f(x) = \frac{a_0}{2} + \sum_{n=1}^{\infty} \left[ a_n \cos(\frac{n\pi x}{l}) + b_n \sin(\frac{n\pi x}{l}) \right]
->$$
->
->**系数表达式**： 
->
->$$
->a_n =\frac{1}{l} \int_{-l}^{l} f(x) \cos(\frac{n\pi x}{l}) \, dx, \quad b_n = \frac{1}{l}\int_{-l}^{l} f(x) \sin(\frac{n\pi x}{l}) \, dx
->$$
->
->**复数形式结果**： 
->$$
->\begin{aligned}
->f(x) & = \frac{a_0}{2} + \sum_{n=1}^{\infty} \left[ \frac{a_n}{2}(e^{i\frac{n\pi x}{l}}+e^{-i\frac{n\pi x}{l}} ) - \frac{b_ni}{2} (e^{i\frac{n\pi x}{l}}-e^{-i\frac{n\pi x}{l}} )  \right] \\
->&= \frac{a_0}{2} + \sum_{n=1}^{\infty} \left[ \frac{a_n-b_ni}{2} e^{i\frac{n\pi x}{l}} + \frac{a_n+b_ni}{2} e^{-i\frac{n\pi x}{l}} \right]
->\end{aligned}
->$$
-
+不考
 
 [回到主页面](index.html)
