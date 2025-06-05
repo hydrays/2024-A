@@ -401,15 +401,6 @@ vlook-query: ws=off
 > ![全微分几何图示](media/img/Total_differential.jpg#200pt)
 > 
 
-
-> [!important]
-> 
-> ==三元函数全微分==
-> 
->$$
->df = \left( \frac{\partial f}{\partial x}, \frac{\partial f}{\partial y}, \frac{\partial f}{\partial z} \right)^T \cdot \left( dx, dy, dz \right)^T
->$$
-
 >[!note]
 >
 > >**例1:$ z(x,y) = x + y $.**
@@ -478,280 +469,24 @@ vlook-query: ws=off
 > >最终结果：$dS = \sin\theta (L - 4x + 2x \cos\theta)dx + [x \cos\theta (L - 2x) + x^2 \cos 2\theta]d\theta$
 
 
-### 多元复合函数求导的链式法则
-
->[!note]
->
-> >**例: $f(x, y) = \sin(x^2 + y) + \cos(x + y^2)$.**
-> >
-> >$
-> >\begin{cases} 
-> >2x \cos(x^2 + y) - \sin(x + y^2) = 0 \\ 
-> >\cos(x^2 + y) - 2y \sin(x + y^2) = 0 
-> >\end{cases}
-> >$
+### 链式法则
 
 ## 隐函数求导
 
->[!tip]
->
-> **复习：直接求导法**
-> 给定隐函数方程：$ x + \cos y = xy $
->  两边对$x$求导: $ \displaystyle\frac{d}{dx}(x) + \displaystyle\frac{d}{dx}(\cos y) = \displaystyle\frac{d}{dx}(xy) $
->  逐项计算：$ 1 - \sin y \cdot y' = y + x y' $
->  解出$y'$：$ y' = \displaystyle\frac{1 - y}{\sin y + x} $
->
-> **全微分法（更通用的方法）**
-> 
-> 将方程改写为：$ F(x,y) = x + \cos y - xy = 0 $
-> 
-> **求导原理**：
->  计算全微分：$ dF = \displaystyle\frac{\partial F}{\partial x}dx + \displaystyle\frac{\partial F}{\partial y}dy = 0 $
->  求出偏导数：$ \displaystyle\frac{\partial F}{\partial x} = 1 - y $ ,  $ \displaystyle\frac{\partial F}{\partial y} = -\sin y - x $
-> 根据隐函数定理：$ \displaystyle\frac{dy}{dx} = -\displaystyle\frac{\displaystyle\frac{\partial F}{\partial x}}{\displaystyle\frac{\partial F}{\partial y}} = \displaystyle\frac{1 - y}{\sin y + x} $
-> 
->**两种方法对比**
-> | 方法       | 优点               | 缺点               |
-> |------------|--------------------|--------------------|
-> | 直接求导法 | 步骤直观           | 需显式处理$y$的函数性 |
-> | 全微分法   | 通用性强,适合多变量 | 需计算偏导数        |
->
-> >**公式推导**  
-> >由 $F(x,y,f(x,y)) \equiv 0$ 两边求导：
-> >1. 对 $x$ 求导：$ F_x + F_z \displaystyle\frac{\partial z}{\partial x} = 0 \ \Rightarrow\ \displaystyle\frac{\partial z}{\partial x} = -\displaystyle\frac{F_x}{F_z} $
-> >2. 对 $y$ 求导：$ F_y + F_z \displaystyle\frac{\partial z}{\partial y} = 0 \ \Rightarrow\ \displaystyle\frac{\partial z}{\partial y} = -\displaystyle\frac{F_y}{F_z} $
-
->[!note]
->
-> >**例1:给定隐函数方程：$F(x, y, z) = 0 $,（也可以成 $z = z(x, y)$） 求以下两个偏导数：$ \displaystyle\frac{\partial z}{\partial x} $,$ \displaystyle\frac{\partial z}{\partial y} $.**
-> >
-> >**解:**
-> > 对$x$求偏导： $ \displaystyle\frac{\partial F}{\partial x} + \displaystyle\frac{\partial F}{\partial z} \displaystyle\frac{\partial z}{\partial x} = 0 $
-> > 对$y$求偏导： $ \displaystyle\frac{\partial F}{\partial y} + \displaystyle\frac{\partial F}{\partial z} \displaystyle\frac{\partial z}{\partial y} = 0 $
-> > 最终公式: $ \displaystyle\frac{\partial z}{\partial x} = -\displaystyle\frac{\displaystyle\frac{\partial F}{\partial x}}{\displaystyle\frac{\partial F}{\partial z}} $ , $ \displaystyle\frac{\partial z}{\partial y} = -\displaystyle\frac{\displaystyle\frac{\partial F}{\partial y}}{\displaystyle\frac{\partial F}{\partial z}} $
->
-> >**例2:给定隐函数方程：$ x^2 + y^2 + z^2 - 4z = 0 $,求 $ \displaystyle\frac{\partial^2 z}{\partial x^2}$.**
-> >
-> >**解:**一阶偏导数计算：$ \displaystyle\frac{\partial z}{\partial x} = -\displaystyle\frac{x}{z-2} $
-> >二阶偏导数推导：
-> >对一阶导结果再次求导： $ \displaystyle\frac{\partial^2 z}{\partial x^2} = \displaystyle\frac{d}{dx}\left( -\displaystyle\frac{x}{z-2} \right) $
-> >应用商的导数法则：$ = -\displaystyle\frac{(1)(z-2) - x\displaystyle\frac{\partial z}{\partial x}}{(z-2)^2} $
-> >代入$\displaystyle\frac{\partial z}{\partial x}$ 得$-\displaystyle\frac{(z-2) - x\left(-\displaystyle\frac{x}{z-2}\right)}{(z-2)^2} $ $ = \displaystyle\frac{2 - z - \displaystyle\frac{x^2}{z-2}}{(z-2)^2} $
->
->
-> >**例3:给定两个隐函数方程：
-> >$ 
-> >\begin{cases}
-> >P = F(x, y, u, v) = 0 \\
-> >q = Q(x, y, u, v) = 0 
-> >\end{cases}
-> >$  需要求解的偏导数矩阵：$ 
-> >\begin{pmatrix}
-> >\displaystyle\frac{\partial u}{\partial x} & \displaystyle\frac{\partial u}{\partial y} \\
-> >\displaystyle\frac{\partial v}{\partial x} & \displaystyle\frac{\partial v}{\partial y}
-> >\end{pmatrix}
-> >$**
-> >
-> >**解:**
-> >对每个方程求全微分： $ 
-> >\begin{cases}
-> >dF = F_x dx + F_y dy + F_u du + F_v dv = 0 \\
-> >dG = G_x dx + G_y dy + G_u du + G_v dv = 0 
-> >\end{cases}
-> >$
-> >整理成矩阵形式：
-> >$ 
-> >\begin{pmatrix}
-> >F_u & F_v \\
-> >G_u & G_v 
-> >\end{pmatrix}
-> >\begin{pmatrix}
-> >\displaystyle\frac{\partial u}{\partial x} \\
-> >\displaystyle\frac{\partial v}{\partial x}
-> >\end{pmatrix}
-> >= -
-> >\begin{pmatrix}
-> >F_x \\
-> >G_x 
-> >\end{pmatrix}
-> >$
-> >解得：
-> >$
-> >\begin{pmatrix}
-> >\displaystyle\frac{\partial u}{\partial x} \\
-> >\displaystyle\frac{\partial v}{\partial x}
-> >\end{pmatrix}
-> >= -
-> >\begin{pmatrix}
-> >F_u & F_v \\
-> >G_u & G_v 
-> >\end{pmatrix}^{-1}
-> >\begin{pmatrix}
-> >F_x \\
-> >G_x 
-> >\end{pmatrix}
-> >$
->
->
-> >**例4：$
-> > \begin{cases}
-> > xu - yv = 0 \\
-> > yu + xv = 1
-> > \end{cases}
-> > $ 求对函数 $u(x,y)$ 和 $v(x,y)$ 的偏导数$ u_x,u_y,v_x,v_y$.**
-> > 
-> > **解：**
-> > 第一个方程对$x$求导：$ u + x\displaystyle\frac{\partial u}{\partial x} - y\displaystyle\frac{\partial v}{\partial x} = 0 $
-> >  第二个方程对$x$求导：$y\displaystyle\frac{\partial u}{\partial x} + v + x\displaystyle\frac{\partial v}{\partial x} = 0 $
-> > 整理成方程组：$
-> > \begin{cases}
-> > xu_x - yv_x = -u \\
-> > yu_x + xv_x = -v
-> > \end{cases}
-> > $
-> >从第一式解出： $ u_x = \displaystyle\frac{yv_x - u}{x} $
-> > 代入第二式：$ y\left(\displaystyle\frac{yv_x - u}{x}\right) + v + xv_x = 0 $
-> > 化简得：$ (x^2 + y^2)v_x = yu - xv $
-> >最终解：$ v_x = \displaystyle\frac{yu - xv}{x^2 + y^2} $
->
->
-> >**例5:给定约束方程组：
-> > $ F = x - \rho\cos\theta = 0 $,
-> > $ G = y - \rho\sin\theta = 0 $.**
-> >
-> >[此题有问题，请检阅]
-> >**解:** 约束函数的雅可比矩阵（对变量 $x, y, \rho, \theta$ 求偏导）为：
-> >$J =
-> >\begin{bmatrix}
-> >\displaystyle\frac{\partial F}{\partial x} & \displaystyle\frac{\partial F}{\partial y} & \displaystyle\frac{\partial F}{\partial \rho} & \displaystyle\frac{\partial F}{\partial \theta} \\
-> >\displaystyle\frac{\partial G}{\partial x} & \displaystyle\frac{\partial G}{\partial y} & \displaystyle\frac{\partial G}{\partial \rho} & \displaystyle\frac{\partial G}{\partial \theta}
-> >\end{bmatrix}=
-> >\begin{bmatrix}
-> >1 & 0 & -\cos\theta & \rho \sin\theta \\
-> >0 & 1 & -\sin\theta & -\rho \cos\theta
-> >\end{bmatrix}$
->
->
-> >**例6:设 $u = f(x,y)$ 的所有二阶偏导数连续,将下列表达式转换为极坐标形式： 
-> > (1) $\left( \dfrac{\partial u}{\partial x} \right)^2 + \left( \dfrac{\partial u}{\partial y} \right)^2$ 
-> > (2) $\dfrac{\partial^2 u}{\partial x^2} + \dfrac{\partial^2 u}{\partial y^2}$.**
-> >
-> >**解:**  
-> > 由极坐标关系 $\rho = \sqrt{x^2+y^2}$, $\theta = \arctan(y/x)$,通过链式法则：
-> > $$ \displaystyle\frac{\partial u}{\partial x} = \displaystyle\frac{\partial u}{\partial \rho}\cos\theta - \displaystyle\frac{\partial u}{\partial \theta}\displaystyle\frac{\sin\theta}{\rho} $$
-> > $$ \displaystyle\frac{\partial u}{\partial y} = \displaystyle\frac{\partial u}{\partial \rho}\sin\theta + \displaystyle\frac{\partial u}{\partial \theta}\displaystyle\frac{\cos\theta}{\rho} $$
-> > $$ \left(\displaystyle\frac{\partial u}{\partial x}\right)^2 + \left(\displaystyle\frac{\partial u}{\partial y}\right)^2 = \left(\displaystyle\frac{\partial u}{\partial \rho}\right)^2 + \displaystyle\frac{1}{\rho^2}\left(\displaystyle\frac{\partial u}{\partial \theta}\right)^2 $$
-> > $\displaystyle\frac{\partial^2 u}{\partial x^2}$展开：
-> > $$ \begin{aligned}
-> > \displaystyle\frac{\partial^2 u}{\partial x^2} &= \displaystyle\frac{\partial^2 u}{\partial \rho^2}\cos^2\theta - \displaystyle\frac{\partial^2 u}{\partial \rho \partial \theta}\sin 2\theta + \displaystyle\frac{\partial^2 u}{\partial \theta^2}\displaystyle\frac{\sin^2\theta}{\rho^2} \\
-> > &\quad + \displaystyle\frac{\partial u}{\partial \theta}\displaystyle\frac{\sin 2\theta}{\rho^2} + \displaystyle\frac{\partial u}{\partial \rho}\displaystyle\frac{\sin^2\theta}{\rho}
-> > \end{aligned} $$
-> > $\displaystyle\frac{\partial^2 u}{\partial y^2}$展开：
-> > $$ \begin{aligned}
-> > \displaystyle\frac{\partial^2 u}{\partial y^2} &= \displaystyle\frac{\partial^2 u}{\partial \rho^2}\sin^2\theta + \displaystyle\frac{\partial^2 u}{\partial \rho \partial \theta}\sin 2\theta + \displaystyle\frac{\partial^2 u}{\partial \theta^2}\displaystyle\frac{\cos^2\theta}{\rho^2} \\
-> > &\quad - \displaystyle\frac{\partial u}{\partial \theta}\displaystyle\frac{\sin 2\theta}{\rho^2} + \displaystyle\frac{\partial u}{\partial \rho}\displaystyle\frac{\cos^2\theta}{\rho}
-> > \end{aligned} $$
-> > 两式相加后化简得极坐标下的拉普拉斯算子：
-> > $$ \displaystyle\frac{\partial^2 u}{\partial x^2} + \displaystyle\frac{\partial^2 u}{\partial y^2} = { \displaystyle\frac{\partial^2 u}{\partial \rho^2} + \displaystyle\frac{1}{\rho}\displaystyle\frac{\partial u}{\partial \rho} + \displaystyle\frac{1}{\rho^2}\displaystyle\frac{\partial^2 u}{\partial \theta^2} } $$
-> >或等价表示为：
-> > $$ { \displaystyle\frac{1}{\rho}\displaystyle\frac{\partial}{\partial \rho}\left(\rho \displaystyle\frac{\partial u}{\partial \rho}\right) + \displaystyle\frac{1}{\rho^2}\displaystyle\frac{\partial^2 u}{\partial \theta^2} } $$
-
-## 方向导数
->[!important]
->**方向导数的定义**
->设函数 $f(x,y,z)$ 在点 $P_0(x_0,y_0,z_0)$ 的某邻域内有定义,$\mathbf{l}$ 为从 $P_0$ 出发的给定方向向量,$P(x,y,z)$ 为 $\mathbf{l}$ 上邻近 $P_0$ 的点,若极限  
->$$
-> \displaystyle\lim_{\rho \to 0^+} \frac{f(P) - f(P_0)}{\rho} = \left. \frac{\partial f}{\partial l} \right|_{P_0}
->$$
->存在,则称此极限为 $f$ 在 $P_0$ 点沿方向 $\mathbf{l}$ 的**方向导数**,其中 $\rho = |PP_0|$,
->**计算公式** 
->当 $f$ 在 $P_0$ 点可微时,方向导数可通过梯度计算：  
->$$ \left. \displaystyle\frac{\partial f}{\partial l} \right|_{P_0} = \nabla f(P_0) \cdot \mathbf{l}^0 = \left( \displaystyle\frac{\partial f}{\partial x}, \displaystyle\frac{\partial f}{\partial y}, \displaystyle\frac{\partial f}{\partial z} \right) \cdot (cos\alpha, cos\beta, cos\gamma) $$
->其中 $\mathbf{l}^0 = (cos\alpha, cos\beta, cos\gamma)$ 为单位方向向量,
->**几何意义**
->方向导数表示函数沿 $\mathbf{l}$ 方向的瞬时变化率：
->
->- 当 $\nabla f$ 与 $\mathbf{l}$ 同向时取最大值 $|\nabla f|$
->- 当 $\nabla f$ 与 $\mathbf{l}$ 反向时取最小值 $-|\nabla f|$
->- 当 $\nabla f \perp \mathbf{l}$ 时方向导数为零
-
->[!important]
-> **方向导数存在定理**  
-> 若函数 $f(x,y)$ 在点 $P_0(x_0,y_0)$ 可微分,则沿任一方向 $\mathbf{l}$ 的方向导数存在,且满足：  
-> $$
-> \frac{\partial f}{\partial l} \bigg|_{(x_0,y_0)} = f_x(x_0,y_0) \cos\alpha + f_y(x_0,y_0) \cos\beta
-> $$
-> 其中 $\cos\alpha$、$\cos\beta$ 为方向 $\mathbf{l}$ 的方向余弦,  
-> **证明**  
-> 由 $f(x,y)$ 在 $(x_0,y_0)$ 可微：  
-> $$
-> \begin{aligned}
-> &f(x_0+\Delta x, y_0+\Delta y) - f(x_0,y_0) \\
-> &= f_x(x_0,y_0) \Delta x + f_y(x_0,y_0) \Delta y + o\left(\sqrt{(\Delta x)^2 + (\Delta y)^2}\right).
-> \end{aligned}
-> $$
-> 当 $(x_0+\Delta x, y_0+\Delta y)$ 沿方向 $\mathbf{l}$ 变化时（设 $\Delta x = t\cos\alpha$, $\Delta y = t\cos\beta$, $t \to 0$）：  
-> $$
->  \displaystyle\frac{\partial f}{\partial l} = \lim_{t \to 0} \frac{f(x_0+t\cos\alpha, y_0+t\cos\beta) - f(x_0,y_0)}{t} = f_x(x_0,y_0) \cos\alpha + f_y(x_0,y_0) \cos\beta.
-> $$
-
->[!note]
->
-> >**例1:求函数$ z = xe^{2y} $ 在点 $P(1,0) $ 沿 $ P \rightarrow Q(2,-1) $ 方向的方向导数.**
-> >
-> >**解:**方向向量 $\vec{PQ} = (1,-1) $,单位化得：  $$ \vec{n} = \displaystyle\frac{1}{\sqrt{2}}(1,-1)^T $$ 
-> >
-> > - $ \left.\dfrac{\partial z}{\partial x}\right|_{(1,0)} = e^{2y}\big|_{(1,0)} = 1 $
-> > - $ \left.\dfrac{\partial z}{\partial y}\right|_{(1,0)} = 2xe^{2y}\big|_{(1,0)} = 2 $
-> >$
-> >\left.\dfrac{\partial z}{\partial l}\right|_{(1,0)} = \nabla z \cdot \vec{n} = \displaystyle\frac{1}{\sqrt{2}} - \displaystyle\frac{2}{\sqrt{2}} = { -\dfrac{1}{\sqrt{2}} }
-> >$
->
-> >**例2:求函数 $ f(x,y,z) = xy + yz + zx $ 在点 $(1,1,2) $ 沿方向 $ l $ 的方向导数,方向角为 $ 60^\circ, 45^\circ, 60^\circ $.**
-> >
-> >**解:** 单位方向向量：$ \mathbf{e}_l = \left( \cos 60^\circ, \cos 45^\circ, \cos 60^\circ \right) = { \left( \displaystyle\frac{1}{2}, \displaystyle\frac{\sqrt{2}}{2}, \displaystyle\frac{1}{2} \right) } $ 
-> >$
-> >  \begin{aligned}
-> >  f_x(1,1,2) &= (y+z)\big|_{(1,1,2)} = 3 \\
-> > f_y(1,1,2) &= (x+z)\big|_{(1,1,2)} = 3 \\
-> > f_z(1,1,2) &= (y+x)\big|_{(1,1,2)} = 2
-> > \end{aligned}
-> >$
-> >$
-> > \left. \displaystyle\frac{\partial f}{\partial l} \right|_{(1,1,2)} = 3 \cdot \displaystyle\frac{1}{2} + 3 \cdot \displaystyle\frac{\sqrt{2}}{2} + 2 \cdot \displaystyle\frac{1}{2} = { \displaystyle\frac{5 + 3\sqrt{2}}{2} }
-> >$
-> >**注**：计算中利用了方向导数公式：
-> >$ \displaystyle\frac{\partial f}{\partial l} = \nabla f \cdot \mathbf{e}_l $
+## 梯度与方向导数
 
 ### 梯度
 
 >[!important]
->**梯度的定义**
+>
+>==梯度的定义==
 >设二元函数$f(x,y) $ 在区域$D$ 内具有一阶连续偏导数,则对于任意点 $ P_0(x_0,y_0) \in D $,其梯度定义为：
 >$$\text{grad}\, f(x_0,y_0) = \nabla f(x_0,y_0) = f_x(x_0,y_0)\,\mathbf{i} + f_y(x_0,y_0)\,\mathbf{j}$$
 >其中微分算子$  \nabla = \dfrac{\partial}{\partial x}\mathbf{i} + \dfrac{\partial}{\partial y}\mathbf{j} ,$
->**方向导数与梯度的关系**  
->当 $ f(x,y) $ 在 $ P_0 $ 可微时,沿单位方向 $ \mathbf{e}_l = (\cos\alpha,\cos\beta) $ 的方向导数为：
->$$ \left. \displaystyle\frac{\partial f}{\partial l} \right|_{(x_0,y_0)} = \nabla f(x_0,y_0) \cdot \mathbf{e}_l = \|\nabla f(x_0,y_0)\| \cos\theta$$
->其中$ \theta $ 为梯度向量与方向 $\mathbf{e}_l $ 的夹角,
->**梯度的几何特性** 
->
-> >1. **最大增长率方向**  
-> >当 $ \theta=0 $（方向与梯度同向）时：
-> >$$\left. \displaystyle\frac{\partial f}{\partial l} \right|_{(x_0,y_0)} = \|\nabla f(x_0,y_0)\|$$
-> >*此时函数增长最快,增长率等于梯度模长*
-> >2. **最大减少率方向**  
-> >当 $\theta=\pi $（方向与梯度反向）时：
-> >$$ \left. \displaystyle\frac{\partial f}{\partial l} \right|_{(x_0,y_0)} = -\|\nabla f(x_0,y_0)\|$$
-> >*此时函数减少最快*
-> > 3. **零变化率方向**  
-> >当$ \theta=\dfrac{\pi}{2} $（方向与梯度正交）时：
-> >$$   \left. \displaystyle\frac{\partial f}{\partial l} \right|_{(x_0,y_0)} = 0  $$
-> >*此时函数值不变化*
-> >**重要结论** 
-> >- 梯度方向是函数值增长最快的方向  
-> >- 梯度模长等于方向导数的最大值  
-> >- 等值线的法线方向与梯度方向一致
+
+> [!warning]
+> 
+> ==梯度方向是函数值增长最快的方向==
 
 >[!note]
 >
@@ -761,26 +496,8 @@ vlook-query: ws=off
 > >$$\displaystyle\frac{\partial f}{\partial x} = -\displaystyle\frac{2x}{(x^2 + y^2)^2}, \quad  \displaystyle\frac{\partial f}{\partial y} = -\displaystyle\frac{2y}{(x^2 + y^2)^2}, $$
 > >所以  
 > >$$\mathrm{grad}\ \dfrac{1}{x^2 + y^2} = -\displaystyle\frac{2x}{(x^2 + y^2)^2} \mathbf{i} - \displaystyle\frac{2y}{(x^2 + y^2)^2} \mathbf{j}.$$
->>
->
-> >**例4:设 $f(x, y) = \dfrac{1}{2}(x^2 + y^2),\ P_0(1,1)$,求 
-> > (1) $f(x, y)$ 在 $P_0$ 处增加最快的方向以及 $f(x, y)$ 沿这个方向的方向导数； 
-> > (2) $f(x, y)$ 在 $P_0$ 处减少最快的方向以及 $f(x, y)$ 沿这个方向的方向导数； 
-> > (3) $f(x, y)$ 在 $P_0$ 处的变化率为零的方向. **
 > >
-> >**解:** 
-> >(1) $f(x, y)$ 在 $P_0$ 处沿 $\nabla f(1,1)$ 的方向增加最快,  
-> >$$\nabla f(1,1) = (x\mathbf{i} + y\mathbf{j})\Big|_{(1,1)} = \mathbf{i} + \mathbf{j},$$
-> >故所求方向可取为 
-> >$$ \mathbf{n} = \displaystyle\frac{\nabla f(1,1)}{|\nabla f(1,1)|} = \displaystyle\frac{1}{\sqrt{2}}\mathbf{i} + \displaystyle\frac{1}{\sqrt{2}}\mathbf{j},$$
-> >方向导数为 
-> >$$\left. \displaystyle\frac{\partial f}{\partial \mathbf{n}} \right|_{(1,1)} = |\nabla f(1,1)| = \sqrt{2}.$$
-> >(2) $f(x, y)$ 在 $P_0$ 处沿 $-\nabla f(1,1)$ 的方向减少最快,这方向可取为 
-> >$$ \mathbf{n}_1 = -\mathbf{n} = -\displaystyle\frac{1}{\sqrt{2}} \mathbf{i} - \displaystyle\frac{1}{\sqrt{2}} \mathbf{j},$$
-> >方向导数为  
-> >$$\left. \displaystyle\frac{\partial f}{\partial \mathbf{n}_1} \right|_{(1,1)} = -|\nabla f(1,1)| = -\sqrt{2}.$$
-> >(3) $f(x, y)$ 在 $P_0$ 处沿垂直于 $\nabla f(1,1)$ 的方向变化率为零,这方向是  
-> >$$\mathbf{n}_2 = -\displaystyle\frac{1}{\sqrt{2}} \mathbf{i} + \displaystyle\frac{1}{\sqrt{2}} \mathbf{j} \quad \text{或} \quad \mathbf{n}_3 = \displaystyle\frac{1}{\sqrt{2}} \mathbf{i} - \displaystyle\frac{1}{\sqrt{2}} \mathbf{j}.$$
+>
 >
 >
 > >**例5:设 $f(x, y, z) = x^3 - x y^2 - z^2,\ P_0(1,1,0)$,问 $f(x,y,z)$ 在 $P_0$ 处沿什么方向变化最快,  在这个方向的变化率是多少?**
@@ -803,28 +520,13 @@ vlook-query: ws=off
 > >$$x = 1 + 2t,\ y = 2 + 4t,\ z = 4 + t \quad (t\ \text{为任意常数}).$$
 
 >[!important]
->**三元函数的梯度定义与性质**
+>
+> ==三元函数的梯度定义与性质==
 >设三元函数 \( f(x,y,z) \) 在空间区域 \( G \) 内具有一阶连续偏导数,则对于点 $ P_0(x_0,y_ 0,z_0)$ $in G$ \),其梯度为：
 >
 >>$$\text{grad}\, f(x_0,y_0,z_0) = \nabla f(x_0,y_0,z_0) = f_x\,\mathbf{i} + f_y\,\mathbf{j} + f_z\,\mathbf{k}$$
 >>其中三维Nabla算子：
 >>$$ \nabla = \dfrac{\partial}{\partial x}\mathbf{i} + \dfrac{\partial}{\partial y}\mathbf{j} + \dfrac{\partial}{\partial z}\mathbf{k} $$
->>**几何特性** 
->>**方向极值性**  
->>- 梯度方向是函数值增长最快的方向  
->>-  梯度模长等于方向导数最大值：
->>  $$ \|\nabla f\| = \max \left. \displaystyle\frac{\partial f}{\partial l} \right|_{P_0} $$
->>   **等值面法向性**  
->>   对于等值面 $ f(x,y,z)=c $,梯度方向与该点法线方向 $ \mathbf{n}重合：
->>   $$ \nabla f \parallel \mathbf{n} $$
->>   且法线方向导数为：
->>   $$ \left. \displaystyle\frac{\partial f}{\partial n} \right|_{P_0} = \|\nabla f\| $
->>   **与二元函数梯度的一致性**  
->>   三元函数梯度保留了二元函数梯度的所有核心性质：
->>- 方向导数公式：
->>$$ \left. \displaystyle\frac{\partial f}{\partial l} \right|_{P_0} = \nabla f \cdot \mathbf{e}_l $$
->>- 正交方向导数为零
->>- 线性运算性质不变
 >
 
 >[!note]
@@ -834,71 +536,28 @@ vlook-query: ws=off
 > >$ \nabla f = (2x, z, y) \big|_{(1,2,3)} = (2,3,2) $
 
 
->[!important]
-> **数量场与向量场的概念**
-> **定义**  
->
-> - **数量场**：区域 $G$ 内每点 $M$ 对应确定数量 $f(M)$（如温度场、密度场）  
-> - **向量场**：区域 $G$ 内每点 $M$ 对应向量 $\mathbf{F}(M) = P(M)\mathbf{i} + Q(M)\mathbf{j} + R(M)\mathbf{k}$（如力场、速度场）
-> **势场与梯度场**  
-> 若向量场 $\mathbf{F}(M)$ 是某数量场 $f(M)$ 的梯度,则称：  
-> - $f(M)$ 为 $\mathbf{F}(M)$ 的**势函数**  
-> - $\mathbf{F}(M)$ 为**势场**  
-> *注：不是所有向量场都是势场*
+### 方向导数
 
->[!note]
+>[!important]
 >
-> >**例:引力势场的梯度—  求数量场 $\dfrac{m}{r}$ 的梯度场（$m>0$, $r=\sqrt{x^2+y^2+z^2}$.**
-> > 
-> >**解:**
->  >$$\displaystyle\frac{\partial}{\partial x}\left(\displaystyle\frac{m}{r}\right) = -\displaystyle\frac{mx}{r^3}, \quad
-> >\displaystyle\frac{\partial}{\partial y}\left(\displaystyle\frac{m}{r}\right) = -\displaystyle\frac{my}{r^3}, \quad
->  > \displaystyle\frac{\partial}{\partial z}\left(\displaystyle\frac{m}{r}\right) = -\displaystyle\frac{mz}{r^3}$$
-> >  $$\text{grad}\,\displaystyle\frac{m}{r} = -\displaystyle\frac{m}{r^2}\left(\displaystyle\frac{x}{r}\mathbf{i} + \displaystyle\frac{y}{r}\mathbf{j} + \displaystyle\frac{z}{r}\mathbf{k}\right) = -\displaystyle\frac{m}{r^2}\mathbf{e}_r$$
-> > 其中 $\mathbf{e}_r = \dfrac{x}{r}\mathbf{i} + \dfrac{y}{r}\mathbf{j} + \dfrac{z}{r}\mathbf{k}$ 为径向单位向量
+>==方向导数的定义==
+>设函数 $f(x,y,z)$ 在点 $P_0(x_0,y_0,z_0)$ 的某邻域内有定义,$\mathbf{l}$ 为从 $P_0$ 出发的给定方向向量,$P(x,y,z)$ 为 $\mathbf{l}$ 上邻近 $P_0$ 的点,若极限  
+>$$
+> \displaystyle\lim_{\rho \to 0^+} \frac{f(P) - f(P_0)}{\rho} = \left. \frac{\partial f}{\partial l} \right|_{P_0}
+>$$
+>存在,则称此极限为 $f$ 在 $P_0$ 点沿方向 $\mathbf{l}$ 的**方向导数**,其中 $\rho = |PP_0|$.
 
 >[!warning]
-> **物理意义**  
-> 该梯度场对应**引力场**：  
-> - 大小：与质量 $m$ 成正比,与距离平方 $r^2$ 成反比  
-> - 方向：指向原点 $O$  
-> - 函数 $\dfrac{m}{r}$ 称为**引力势**
+>==方向导数与梯度的关系==
+>
+> 方向导数等于梯度在该方向上的投影.
 
-## 多元函数的极值及其求法
-
->[!important]
->**定义** 若函数 $f(x, y)$ 在点 $(x_0, y_0)$ 的某邻域内有  
->$$ f(x, y) \leq f(x_0, y_0)\quad (\text{或}\ f(x, y) \geq f(x_0, y_0)),$$
->对所有在该邻域内的点 $(x, y)$ 都成立,则称 $f(x, y)$ 在点 $(x_0, y_0)$ 处有**极大值**（或**极小值**）,$f(x_0, y_0)$ 称为**极大值**（或**极小值**）.
->
->若 $f(x, y)$ 在点 $(x_0, y_0)$ 处有极大值或极小值,则称其在该点有**极值**. 
->
->若存在邻域内除了点 $(x_0, y_0)$ 本身外,  
->$$f(x, y) < f(x_0, y_0) \quad \text{和} \quad f(x, y) > f(x_0, y_0)$$
->同时都能成立,则称 $f(x_0, y_0)$ 为**鞍点**.
->**二元函数取极值的条件**
->
->> **必要条件** 若函数 $f(x, y)$ 在点 $(x_0, y_0)$ 处取得极值,且在该点可微分,则有：  
->> $$\displaystyle\frac{\partial f}{\partial x}(x_0, y_0) = 0, \quad \displaystyle\frac{\partial f}{\partial y}(x_0, y_0) = 0.$$
->> 即：$(x_0, y_0)$ 是 $f(x, y)$ 的一个==驻点==（又称为临界点）. 
->> **充要条件** 若 $f(x, y)$ 在点 $(x_0, y_0)$ 处具有二阶连续偏导数,且  
->> $$\displaystyle\frac{\partial f}{\partial x}(x_0, y_0) = 0,\quad \displaystyle\frac{\partial f}{\partial y}(x_0, y_0) = 0,$$
->> 并记二阶导数构成的判别式为  
->> $$ D = f_{xx}(x_0, y_0)f_{yy}(x_0, y_0) - [f_{xy}(x_0, y_0)]^2,$$
->> 则：  
->>
->> - 若 $D > 0$ 且 $f_{xx}(x_0, y_0) > 0$,则 $f(x, y)$ 在 $(x_0, y_0)$ 处取极小值；  
->> - 若 $D > 0$ 且 $f_{xx}(x_0, y_0) < 0$,则 $f(x, y)$ 在 $(x_0, y_0)$ 处取极大值；  
->> - 若 $D < 0$,则 $(x_0, y_0)$ 为==鞍点==；  
->> - 若 $D = 0$,判别方法失效,需另行分析.
->>
+## 多元函数的极值
 
 >[!note]
 > >**例1:有一宽为24 cm的长方形铁板,把它两边折起来做成一断面为等腰梯形的水槽,问怎样折法才能使断面的面积最大？**
 > >
-> >![长方形铁板](media/img/steel_plate.png)
-> >
-> >** 解:** 设折起来的边长为$x$ cm,倾角为$\alpha$(如图),则梯形断面的下底长为$(24 - 2x)$ cm,上底长为$(24 - 2x + 2x \cos \alpha)$ cm,高为$(x \sin \alpha)$ cm,所以断面面积
+> >**解:** 设折起来的边长为$x$ cm,倾角为$\alpha$(如图),则梯形断面的下底长为$(24 - 2x)$ cm,上底长为$(24 - 2x + 2x \cos \alpha)$ cm,高为$(x \sin \alpha)$ cm,所以断面面积
 > > $$A = \displaystyle\frac{1}{2} [ (24 - 2x + 2x \cos \alpha) + (24 - 2x) ] \cdot x \sin \alpha$$
 > > 即
 > > $$A = (24x \sin \alpha - 2x^2 \sin \alpha + x^2 \sin \alpha \cos \alpha) \quad (0 < x < 12, 0 < \alpha \leq \displaystyle\frac{\pi}{2})$$
@@ -927,61 +586,11 @@ vlook-query: ws=off
 > > 根据题意可以知道, 水箱所用材料面积的最小值一定存在, 并在开区域 $D = \{(x, y) | x > 0, y > 0\}$ 内取得,又函数在 $D$ 内只有唯一的驻点 $(\sqrt[3]{2}, \sqrt[3]{2})$, 因此可断定当 $x = \sqrt[3]{2}, y = \sqrt[3]{2}$ 时, $A$ 取得最小值,就是说, 当水箱的长为 $\sqrt[3]{2}$ m, 宽为 $\sqrt[3]{2}$ m, 高为 $\displaystyle\frac{2}{\sqrt[3]{2} \cdot \sqrt[3]{2}} = \sqrt[3]{2}$ m 时, 水箱所用的材料最省.
 > > 从这个例子还可看出, 在体积一定的长方体中, 以立方体的表面积为最小,
 
+### 条件极值
 
 >[!important]
->**梯度下降法：** 体会“盲人下山”的感觉,更好的理解梯度下降法,
->**一维函数（单变量）**
-> 梯度表示：
-> $ \nabla f(x) = f'(x) $
-> 
-> 极值条件：
-> 1. 必要条件：
-> $ f'(x_0) = 0 $
-> 2. 充分条件：
-> - 若 $f''(x_0) > 0$ → 极小值
-> - 若 $f''(x_0) < 0$ → 极大值
-> 
->**二维函数（双变量）**
-> 梯度表示：
-> $ \nabla f(x,y) = \begin{pmatrix} \displaystyle\frac{\partial f}{\partial x} \\ \displaystyle\frac{\partial f}{\partial y} \end{pmatrix} $
-> 
-> 极值条件：
-> 1. 必要条件： $ \nabla f(x_0,y_0) = \mathbf{0} $
->说明有初值依赖性,且极值点是局部邻域最小值
-> 2. 充分条件：
-> 计算Hessian矩阵：
-> $ H = \begin{bmatrix} \displaystyle\frac{\partial^2 f}{\partial x^2} & \displaystyle\frac{\partial^2 f}{\partial x \partial y} \\ \displaystyle\frac{\partial^2 f}{\partial y \partial x} & \displaystyle\frac{\partial^2 f}{\partial y^2} \end{bmatrix} $
-> - $\mathrm{det}(H) > 0$ 且 $\displaystyle\frac{\partial^2 f}{\partial x^2} > 0$ → 极小值
-> - $\mathrm{det}(H) > 0$ 且 $\displaystyle\frac{\partial^2 f}{\partial x^2} < 0$ → 极大值
-> - $\mathrm{det}(H) < 0$ → 鞍点
-> 
-> **高维函数（n变量）**
-> 梯度表示：
-> $ \nabla f(\mathbf{x}) = \begin{pmatrix} \displaystyle\frac{\partial f}{\partial x_1} \\ \vdots \\ \displaystyle\frac{\partial f}{\partial x_n} \end{pmatrix} $
-> 
-> 极值条件：
-> 1. 必要条件：$ \nabla f(\mathbf{x}_0) = \mathbf{0} $
-> 2. 充分条件：
-> - Hessian矩阵正定 → 极小值
-> - Hessian矩阵负定 → 极大值
-> - Hessian矩阵有正负特征值 → 鞍点
-> 
-> 通用性质
-> 1. 梯度方向：函数在该方向变化率最大
-> 2. 极值检测：
-> - 一维：二阶导数测试
-> - 多维：Hessian矩阵特征值分析
-> 3. 鞍点现象：仅在高维出现
-> 注：所有情况均假设函数在考察点处可微
->
->
-
-### 条件极值 拉格朗日乘数法
-
->[!important]
-> **条件极值** 是指函数 $f(x, y, \dots)$ 在满足约束条件 $g(x, y, \dots) = 0$ 的前提下取得的极大值或极小值,此时求极值的方法不能单纯使用无约束极值的判别法,  
-> **拉格朗日乘数法** 是用于求**带有约束条件的极值问题**的一种重要方法,  
-> 假设要求函数 $f(x, y)$ 在约束条件 $g(x, y) = 0$ 下的极值,步骤如下：
+> **条件极值** 是指函数 $f(x, y, \dots)$ 在满足约束条件 $g(x, y, \dots) = 0$ 的前提下取得的极大值或极小值.
+> **拉格朗日乘数法** 是用于求**带有约束条件的极值问题**的一种重要方法,  假设要求函数 $f(x, y)$ 在约束条件 $g(x, y) = 0$ 下的极值, 
 > **方法**  
 > 1. 构造拉格朗日函数  
 > $$ L(x, y, \lambda) = f(x, y) + \lambda g(x, y) $$
@@ -989,15 +598,6 @@ vlook-query: ws=off
 > $$\displaystyle\frac{\partial L}{\partial x} = 0,\quad \displaystyle\frac{\partial L}{\partial y} = 0,\quad \displaystyle\frac{\partial L}{\partial \lambda} = 0 $$
 > 3. 解这个方程组,得到可疑点；
 > 4. 将这些点代入 $f(x, y)$,比较函数值,判断极值,
-> **推广**  
-> 若 $f(x, y, z)$ 在约束条件  
-> $$ \begin{cases}
-> g_1(x, y, z) = 0 \\
-> g_2(x, y, z) = 0
-> \end{cases} $$
-> 下求极值,可构造  
-> $$L(x, y, z, \lambda_1, \lambda_2) = f(x, y, z) + \lambda_1 g_1(x, y, z) + \lambda_2 g_2(x, y, z)$$
-> 然后对 $x, y, z, \lambda_1, \lambda_2$ 求偏导并联立方程求解,
 
 >[!note]
 >
@@ -1017,9 +617,7 @@ vlook-query: ws=off
 > >**结论**  
 > >函数在点 \((3a,3a,3a)\) 处取得极小值：
 > >$$ u_{\text{极小}} = 27a^3 $$
->
-> >[例子2待补充,没太看懂写了啥]
-> >**注**：此方程组表示函数 $L(x,y,z)$ 在三个变量方向上的变化率均为恒定值 $\theta$,
+
 [回到主页面](index.html)
 
 [def]: media/img/Total_differential.png

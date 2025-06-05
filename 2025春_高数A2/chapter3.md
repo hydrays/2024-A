@@ -22,7 +22,7 @@ vlook-query: ws=off
 ## 二重积分
 
 > [!tip]
-> 作为从一维定积分向高维空间拓展的关键一步，二重积分为我们打开了研究平面区域上多元函数累积行为的大门。本节将深入探讨这一工具的本质与运用：从几何视角看，二重积分可理解为计算曲面与底面围成的空间体积；从物理视角看，它能够求解非均匀平面薄片的总质量。我们不仅会通过经典的“分割-近似-求和”极限思想严格构建其数学定义，更将揭示如何通过直角坐标系下的累次积分将二维问题拆解为两次一维积分运算，以及如何借助极坐标系转换巧妙处理圆形、环形等对称区域的问题（例如旋转抛物面下的体积计算）。接下来，让我们从最基础的内容开始，逐步剖析这一多维工具的运作逻辑。  
+> 跟单变量积分一样, 二重积分的本质仍然是“分割-近似-求和”的极限过程. 
 
 
 ### 二重积分的概念
@@ -220,7 +220,7 @@ $$
 > $$
 > 其中 $ \mathrm{d}\sigma $表示面积元（即直角坐标系中的 $ \mathrm{d}x\mathrm{d}y $）.当密度均匀时（$ \rho $为常数），总质量退化为密度与面积的乘积 $ M = \rho \cdot A $，其中 $\displaystyle  A = \iint_D \mathrm{d}\sigma $为区域 $ D $的面积.
 >
-> ==质心（Bary center）==
+> ==质心==
 >
 > 质心是物体质量分布的加权平均位置.对于离散质点系，质心坐标 $ (\bar{x}, \bar{y}) $定义为：
 > $$
@@ -230,21 +230,6 @@ $$
 > $$
 > \displaystyle \bar{x} = \frac{\iint_D x \mu(x,y) \, \mathrm{d}\sigma}{\iint_D \mu(x,y) \, \mathrm{d}\sigma}, \quad \bar{y} = \frac{\iint_D y \mu(x,y) \, \mathrm{d}\sigma}{\iint_D \mu(x,y) \, \mathrm{d}\sigma}
 > $$
-
-
-
-### 复习
-> [!tip]
->
-> - 一般区域的二重积分
-> - 积分变换顺序
-> - 换元法：极坐标.被积函数更简单/积分区域更简单
-> - 应用：质量，面积，转动惯量
-> [图略，待补充]
-> $$
-> \displaystyle I=\iint_D\mu (x,y)r^2(x,y)\mathrm{d}x\mathrm{d}y=\sum_{i=1}^Nm_ir_i^2
-> $$
-> 其中，$\mu (x,y)$是密度，$\mathrm{d}x\mathrm{d}y$是面积元.
 
 >[!note]
 >
@@ -279,9 +264,9 @@ $$
 > > $$
 
 
-> [!important]
+> [!warning]
 > 
-> ==转动惯量与质心的关系==
+> ==转动惯量与质心的关系(不要求)==
 > 
 > 对于平面区域 $ D $上的质量分布，若密度函数为 $ \mu(x,y) $，则系统对某点 $ (x_0, y_0) $的转动惯量为：
 > $$
@@ -317,7 +302,7 @@ $$
 > $$
 
 
-> [!important]
+> [!warning]
 > 
 > ==平行轴定理==
 > 
@@ -549,8 +534,6 @@ I^2 &=\int_0^{2\pi}\int_0^{+\infty}e^{-r^2}r\mathrm{d}r\mathrm{d}\theta \\
 > >  $$
 
 ## 三重积分
-> [!important]
-> 三重积分 $\displaystyle  \iiint_{\Omega} f(x,y,z) \, \mathrm{d}x\mathrm{d}y\mathrm{d}z $ 是描述三维空间区域 $ \Omega $ 内物理量累积的核心工具。以质量计算为例，当物体密度分布由函数 $ f(x,y,z) $ 定义时，总质量可通过对体积元 $ \mathrm{d}V = \mathrm{d}x\mathrm{d}y\mathrm{d}z $的积分实现。其数学本质延续了黎曼积分的思想：将空间区域分割为微小立方体，以 $ f(x_i,y_i,z_i) \Delta V $近似每个微元的质量，再通过求和取极限得到精确结果。进一步地，三重积分可推广至质心、转动惯量等物理量的计算——质心坐标 $ (\bar{x}, \bar{y}, \bar{z}) $ 通过 $ \displaystyle  \frac{1}{M}\iiint_{\Omega} x f \, \mathrm{d}V $等公式表达，而转动惯量则需引入距离平方项 $ r^2(x,y,z) $.实际计算中，坐标系的选择直接影响积分效率：直角坐标系直接以 $\mathrm{d}x\mathrm{d}y\mathrm{d}z $ 为体积元；柱坐标系通过雅可比行列式 $ J = \rho $转换为 $\rho \mathrm{d}\rho\mathrm{d}\theta\mathrm{d}z $；球坐标系则对应 $r^2 \sin\theta \mathrm{d}r\mathrm{d}\theta\mathrm{d}\phi $.最终计算常通过累次积分完成，例如在直角坐标系中按 $ z \rightarrow y \rightarrow x $ 的顺序逐次积分，将三维问题分解为三次一维积分，这一过程既保留了数学严谨性，又为工程计算提供了可操作性框架。
 
 >[!note]
 >

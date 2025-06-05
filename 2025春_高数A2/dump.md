@@ -266,4 +266,142 @@ e^{ix} = \cos x + i \sin x, \quad e^{-ix} = \cos x - i \sin x
 >\end{aligned}
 >$$
 
+
+
+>[!note]
+>
+> >**例1:给定隐函数方程：$F(x, y, z) = 0 $,（也可以成 $z = z(x, y)$） 求以下两个偏导数：$ \displaystyle\frac{\partial z}{\partial x} $,$ \displaystyle\frac{\partial z}{\partial y} $.**
+> >
+> >**解:**
+> > 对$x$求偏导： $ \displaystyle\frac{\partial F}{\partial x} + \displaystyle\frac{\partial F}{\partial z} \displaystyle\frac{\partial z}{\partial x} = 0 $
+> > 对$y$求偏导： $ \displaystyle\frac{\partial F}{\partial y} + \displaystyle\frac{\partial F}{\partial z} \displaystyle\frac{\partial z}{\partial y} = 0 $
+> > 最终公式: $ \displaystyle\frac{\partial z}{\partial x} = -\displaystyle\frac{\displaystyle\frac{\partial F}{\partial x}}{\displaystyle\frac{\partial F}{\partial z}} $ , $ \displaystyle\frac{\partial z}{\partial y} = -\displaystyle\frac{\displaystyle\frac{\partial F}{\partial y}}{\displaystyle\frac{\partial F}{\partial z}} $
+>
+> >**例2:给定隐函数方程：$ x^2 + y^2 + z^2 - 4z = 0 $,求 $ \displaystyle\frac{\partial^2 z}{\partial x^2}$.**
+> >
+> >**解:**一阶偏导数计算：$ \displaystyle\frac{\partial z}{\partial x} = -\displaystyle\frac{x}{z-2} $
+> >二阶偏导数推导：
+> >对一阶导结果再次求导： $ \displaystyle\frac{\partial^2 z}{\partial x^2} = \displaystyle\frac{d}{dx}\left( -\displaystyle\frac{x}{z-2} \right) $
+> >应用商的导数法则：$ = -\displaystyle\frac{(1)(z-2) - x\displaystyle\frac{\partial z}{\partial x}}{(z-2)^2} $
+> >代入$\displaystyle\frac{\partial z}{\partial x}$ 得$-\displaystyle\frac{(z-2) - x\left(-\displaystyle\frac{x}{z-2}\right)}{(z-2)^2} $ $ = \displaystyle\frac{2 - z - \displaystyle\frac{x^2}{z-2}}{(z-2)^2} $
+>
+>
+> >**例3:给定两个隐函数方程：
+> >$ 
+> >\begin{cases}
+> >P = F(x, y, u, v) = 0 \\
+> >q = Q(x, y, u, v) = 0 
+> >\end{cases}
+> >$  需要求解的偏导数矩阵：$ 
+> >\begin{pmatrix}
+> >\displaystyle\frac{\partial u}{\partial x} & \displaystyle\frac{\partial u}{\partial y} \\
+> >\displaystyle\frac{\partial v}{\partial x} & \displaystyle\frac{\partial v}{\partial y}
+> >\end{pmatrix}
+> >$**
+> >
+> >**解:**
+> >对每个方程求全微分： $ 
+> >\begin{cases}
+> >dF = F_x dx + F_y dy + F_u du + F_v dv = 0 \\
+> >dG = G_x dx + G_y dy + G_u du + G_v dv = 0 
+> >\end{cases}
+> >$
+> >整理成矩阵形式：
+> >$ 
+> >\begin{pmatrix}
+> >F_u & F_v \\
+> >G_u & G_v 
+> >\end{pmatrix}
+> >\begin{pmatrix}
+> >\displaystyle\frac{\partial u}{\partial x} \\
+> >\displaystyle\frac{\partial v}{\partial x}
+> >\end{pmatrix}
+> >= -
+> >\begin{pmatrix}
+> >F_x \\
+> >G_x 
+> >\end{pmatrix}
+> >$
+> >解得：
+> >$
+> >\begin{pmatrix}
+> >\displaystyle\frac{\partial u}{\partial x} \\
+> >\displaystyle\frac{\partial v}{\partial x}
+> >\end{pmatrix}
+> >= -
+> >\begin{pmatrix}
+> >F_u & F_v \\
+> >G_u & G_v 
+> >\end{pmatrix}^{-1}
+> >\begin{pmatrix}
+> >F_x \\
+> >G_x 
+> >\end{pmatrix}
+> >$
+>
+>
+> >**例4：$
+> > \begin{cases}
+> > xu - yv = 0 \\
+> > yu + xv = 1
+> > \end{cases}
+> > $ 求对函数 $u(x,y)$ 和 $v(x,y)$ 的偏导数$ u_x,u_y,v_x,v_y$.**
+> > 
+> > **解：**
+> > 第一个方程对$x$求导：$ u + x\displaystyle\frac{\partial u}{\partial x} - y\displaystyle\frac{\partial v}{\partial x} = 0 $
+> >  第二个方程对$x$求导：$y\displaystyle\frac{\partial u}{\partial x} + v + x\displaystyle\frac{\partial v}{\partial x} = 0 $
+> > 整理成方程组：$
+> > \begin{cases}
+> > xu_x - yv_x = -u \\
+> > yu_x + xv_x = -v
+> > \end{cases}
+> > $
+> >从第一式解出： $ u_x = \displaystyle\frac{yv_x - u}{x} $
+> > 代入第二式：$ y\left(\displaystyle\frac{yv_x - u}{x}\right) + v + xv_x = 0 $
+> > 化简得：$ (x^2 + y^2)v_x = yu - xv $
+> >最终解：$ v_x = \displaystyle\frac{yu - xv}{x^2 + y^2} $
+>
+>
+> >**例5:给定约束方程组：
+> > $ F = x - \rho\cos\theta = 0 $,
+> > $ G = y - \rho\sin\theta = 0 $.**
+> >
+> >[此题有问题，请检阅]
+> >**解:** 约束函数的雅可比矩阵（对变量 $x, y, \rho, \theta$ 求偏导）为：
+> >$J =
+> >\begin{bmatrix}
+> >\displaystyle\frac{\partial F}{\partial x} & \displaystyle\frac{\partial F}{\partial y} & \displaystyle\frac{\partial F}{\partial \rho} & \displaystyle\frac{\partial F}{\partial \theta} \\
+> >\displaystyle\frac{\partial G}{\partial x} & \displaystyle\frac{\partial G}{\partial y} & \displaystyle\frac{\partial G}{\partial \rho} & \displaystyle\frac{\partial G}{\partial \theta}
+> >\end{bmatrix}=
+> >\begin{bmatrix}
+> >1 & 0 & -\cos\theta & \rho \sin\theta \\
+> >0 & 1 & -\sin\theta & -\rho \cos\theta
+> >\end{bmatrix}$
+>
+>
+> >**例6:设 $u = f(x,y)$ 的所有二阶偏导数连续,将下列表达式转换为极坐标形式： 
+> > (1) $\left( \dfrac{\partial u}{\partial x} \right)^2 + \left( \dfrac{\partial u}{\partial y} \right)^2$ 
+> > (2) $\dfrac{\partial^2 u}{\partial x^2} + \dfrac{\partial^2 u}{\partial y^2}$.**
+> >
+> >**解:**  
+> > 由极坐标关系 $\rho = \sqrt{x^2+y^2}$, $\theta = \arctan(y/x)$,通过链式法则：
+> > $$ \displaystyle\frac{\partial u}{\partial x} = \displaystyle\frac{\partial u}{\partial \rho}\cos\theta - \displaystyle\frac{\partial u}{\partial \theta}\displaystyle\frac{\sin\theta}{\rho} $$
+> > $$ \displaystyle\frac{\partial u}{\partial y} = \displaystyle\frac{\partial u}{\partial \rho}\sin\theta + \displaystyle\frac{\partial u}{\partial \theta}\displaystyle\frac{\cos\theta}{\rho} $$
+> > $$ \left(\displaystyle\frac{\partial u}{\partial x}\right)^2 + \left(\displaystyle\frac{\partial u}{\partial y}\right)^2 = \left(\displaystyle\frac{\partial u}{\partial \rho}\right)^2 + \displaystyle\frac{1}{\rho^2}\left(\displaystyle\frac{\partial u}{\partial \theta}\right)^2 $$
+> > $\displaystyle\frac{\partial^2 u}{\partial x^2}$展开：
+> > $$ \begin{aligned}
+> > \displaystyle\frac{\partial^2 u}{\partial x^2} &= \displaystyle\frac{\partial^2 u}{\partial \rho^2}\cos^2\theta - \displaystyle\frac{\partial^2 u}{\partial \rho \partial \theta}\sin 2\theta + \displaystyle\frac{\partial^2 u}{\partial \theta^2}\displaystyle\frac{\sin^2\theta}{\rho^2} \\
+> > &\quad + \displaystyle\frac{\partial u}{\partial \theta}\displaystyle\frac{\sin 2\theta}{\rho^2} + \displaystyle\frac{\partial u}{\partial \rho}\displaystyle\frac{\sin^2\theta}{\rho}
+> > \end{aligned} $$
+> > $\displaystyle\frac{\partial^2 u}{\partial y^2}$展开：
+> > $$ \begin{aligned}
+> > \displaystyle\frac{\partial^2 u}{\partial y^2} &= \displaystyle\frac{\partial^2 u}{\partial \rho^2}\sin^2\theta + \displaystyle\frac{\partial^2 u}{\partial \rho \partial \theta}\sin 2\theta + \displaystyle\frac{\partial^2 u}{\partial \theta^2}\displaystyle\frac{\cos^2\theta}{\rho^2} \\
+> > &\quad - \displaystyle\frac{\partial u}{\partial \theta}\displaystyle\frac{\sin 2\theta}{\rho^2} + \displaystyle\frac{\partial u}{\partial \rho}\displaystyle\frac{\cos^2\theta}{\rho}
+> > \end{aligned} $$
+> > 两式相加后化简得极坐标下的拉普拉斯算子：
+> > $$ \displaystyle\frac{\partial^2 u}{\partial x^2} + \displaystyle\frac{\partial^2 u}{\partial y^2} = { \displaystyle\frac{\partial^2 u}{\partial \rho^2} + \displaystyle\frac{1}{\rho}\displaystyle\frac{\partial u}{\partial \rho} + \displaystyle\frac{1}{\rho^2}\displaystyle\frac{\partial^2 u}{\partial \theta^2} } $$
+> >或等价表示为：
+> > $$ { \displaystyle\frac{1}{\rho}\displaystyle\frac{\partial}{\partial \rho}\left(\rho \displaystyle\frac{\partial u}{\partial \rho}\right) + \displaystyle\frac{1}{\rho^2}\displaystyle\frac{\partial^2 u}{\partial \theta^2} } $$
+
+
 [回到主页面](index.html)
